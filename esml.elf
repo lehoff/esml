@@ -3,7 +3,8 @@ ty/int : ty.
 ty/unit : ty. 
 
 
-% pids has a typed mailbox and returns a value when they are done, if ever
+% pids has a typed mailbox and returns a value when they are done, if ever.
+% Not sure if the return value is a good idea.
 pid : ty -> ty -> type.
 
 
@@ -15,4 +16,9 @@ exp/recv : exp T -> exp T'.
 
 exp/send : (pid T T') -> exp T -> exp ty/unit.
 
+exp/seq : exp T -> exp T' -> exp T'.
+
+list: ty -> type.
+list/nil : list T.
+list/cons : exp T -> list T -> list T.
 
