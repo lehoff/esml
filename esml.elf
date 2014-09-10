@@ -1,0 +1,18 @@
+ty : type. %name ty T.
+ty/int : ty.
+ty/unit : ty. 
+
+
+% pids has a typed mailbox and returns a value when they are done, if ever
+pid : ty -> ty -> type.
+
+
+exp :  ty -> type.
+exp/const : exp ty/int.
+exp/plus : exp ty/int -> exp ty/int -> exp ty/int.
+
+exp/recv : exp T -> exp T'.
+
+exp/send : (pid T T') -> exp T -> exp ty/unit.
+
+
